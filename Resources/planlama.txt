@@ -1,0 +1,15 @@
+Bir tane ana ekranım o ana ekran üzerinde 
+Öğrenci işlemleri
+	-Not listeleme
+	-Öğrenci aratma numara
+Sınav bilgileri
+	-Numaraya göre sınav yeri ve zamanı sorgulama
+Akademik Takvim ve Haberler
+	
+Ayarlar
+	-Dil değiştirme
+	-Ekran boyutunu büyütüp küçültme
+Etkinlikler ve Duyurular
+
+Sosyal Medya
+	-Sosyal medya hesapları butn şeklinde bulunucak yönlendirme yapıcak
