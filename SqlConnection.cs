@@ -52,12 +52,21 @@ namespace visual_programming_final
                                 string myText = reader[0].ToString() + "-" + reader[1].ToString() + "-" + reader[2].ToString();
                                 myArray.Add(myText);
                             }
-                            else
+                            else if (a == 4)
                             {
-                                string myText = reader[0].ToString() + "-" + reader[1].ToString() + "-" + reader[2].ToString() + "-" + reader[3].ToString();
+                                string myText = reader[0].ToString() + "-" + reader[1].ToString() + "-" + reader[2].ToString()+ "-" + reader[3];
                                 myArray.Add(myText);
                             }
-
+                            else if (a==5)
+                            {
+                                string myText = reader[0].ToString() + "." + reader[1].ToString() + "." + reader[2].ToString() + "." + reader[3].ToString()+ "."+ reader[4].ToString();
+                                myArray.Add(myText);
+                            }
+                            else if (a == 6)
+                            {
+                                string myText = reader[0].ToString() + "." + reader[1].ToString() + "." + reader[2].ToString() + "." + reader[3].ToString() + "." + reader[4].ToString() + "." + reader[5].ToString();
+                                myArray.Add(myText);
+                            }
                             i++;
                             
                         }

@@ -123,6 +123,16 @@ namespace visual_programming_final.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cloudy {
+            get {
+                object obj = ResourceManager.GetObject("cloudy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete__1_ {
             get {
                 object obj = ResourceManager.GetObject("delete (1)", resourceCulture);
@@ -163,6 +173,16 @@ namespace visual_programming_final.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap felllike {
+            get {
+                object obj = ResourceManager.GetObject("felllike", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap graduated {
             get {
                 object obj = ResourceManager.GetObject("graduated", resourceCulture);
@@ -176,6 +196,16 @@ namespace visual_programming_final.Properties {
         internal static System.Drawing.Bitmap graduation_hat {
             get {
                 object obj = ResourceManager.GetObject("graduation-hat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap humidity {
+            get {
+                object obj = ResourceManager.GetObject("humidity", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,6 +323,16 @@ namespace visual_programming_final.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap temp {
+            get {
+                object obj = ResourceManager.GetObject("temp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap test {
             get {
                 object obj = ResourceManager.GetObject("test", resourceCulture);
@@ -336,6 +376,16 @@ namespace visual_programming_final.Properties {
         internal static System.Drawing.Bitmap WhatsApp_Image_2022_12_06_at_18_03_47 {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Image 2022-12-06 at 18.03.47", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wind {
+            get {
+                object obj = ResourceManager.GetObject("wind", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

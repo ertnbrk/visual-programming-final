@@ -71,12 +71,13 @@ namespace visual_programming_final
             ArrayList ogrencilerid = new ArrayList();
             ArrayList ogrenciler = new ArrayList();
             ArrayList ogrenci_sy = new ArrayList();
+            ArrayList isAdmins = new ArrayList();
             if (radioButton1.Checked)
             {
                 //Öğrenci
 
                 ogrencilerid = conn.Command_Reader("SELECT idogrenci FROM ogrenci");
-                ogrenciler = conn.Command_Reader("SELECT ogrenciAd FROM ogrenci");
+                ogrenciler = conn.Command_Reader("SELECT sifre FROM ogrenci");
                 ogrenci_sy = conn.Command_Reader("SELECT ogrenciSoy from ogrenci");
 
 
@@ -112,8 +113,8 @@ namespace visual_programming_final
                 //Öğretmen
 
                 ogrencilerid = conn.Command_Reader("SELECT idOgretmen FROM ogretmen");
-                ogrenciler = conn.Command_Reader("SELECT ogretmencol FROM ogretmen");
-
+                ogrenciler = conn.Command_Reader("SELECT sifre FROM ogretmen");
+                isAdmins = conn.Command_Reader("SELECT Admin FROM ogretmen");
 
 
 
@@ -121,6 +122,10 @@ namespace visual_programming_final
                 {
                     if (ogrencilerid[i].ToString() == textBox1.Text && ogrenciler[i].ToString() == textBox2.Text)
                     {
+                        if (isAdmins[i].ToString() == "Admin")
+                        {
+                            form1.button2.Visible = true;
+                        }
                         MessageBox.Show("Giriş Yapıldı");
                         form1.Show();
                         form1.pictureBox8.Visible = true;

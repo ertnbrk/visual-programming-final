@@ -18,7 +18,7 @@ namespace visual_programming_final
 
         Form1 form1;
         SqlConnection sqlCon = new SqlConnection();
-        int nRowIndex;
+        
         public Duyurular(Form1 form1)
         {
 
@@ -27,7 +27,7 @@ namespace visual_programming_final
 
             // tablonun ayarları
             dataGridView1.ClearSelection();
-            
+            button1.Visible = false;
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnCount = 2;
@@ -37,7 +37,7 @@ namespace visual_programming_final
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;  //hücre değil satır seçimi
             dataGridView1.Columns[1].Width = 200;
             dataGridView1.Columns[0].Width = 50;
-            dataGridView1.FirstDisplayedScrollingRowIndex = nRowIndex;  //scroll
+
             try
             {
                 ArrayList a = new ArrayList();
@@ -50,8 +50,7 @@ namespace visual_programming_final
                     dataGridView1.Rows.Insert(0, cols[0], cols[1]);
                 }
 
-                nRowIndex = dataGridView1.Rows.Count - 2;
-                dataGridView1.Rows[nRowIndex].Selected = true;
+                
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -62,14 +61,21 @@ namespace visual_programming_final
             {
                 pictureBox3.Visible = true;
                 pictureBox2.Visible = true;
+                button1.Visible = true;
+                dateTimePicker1.Visible = true;
+                textBox2.Visible = true;
             }
             else
             {
+                textBox2.Visible = false;
+                dateTimePicker1.Visible = false;
+                button1.Visible = false;
                 pictureBox2.Visible = false;
                 pictureBox3.Visible = false;
             }
 
-        }
+            
+            }
 
         //pencere taşınılabilirliği
         bool move;
@@ -119,20 +125,20 @@ namespace visual_programming_final
 
             try
             {
-                string yeni_duyuru = Interaction.InputBox("Duyuru Girişi", "Duyurunuzu Giriniz.", "", 0, 0);
-                string[] duyurularım = yeni_duyuru.Split('-');
-                string tarih = duyurularım[0];
-                tarih.Trim();
-                string duyuru = duyurularım[1];
-                duyuru.Trim();
-                if (tarih == "-1" || duyuru == "-1")
+                string duyuru = textBox2.Text;
+                //properties'te datatime'ın max değerini bugün verdim patlıyosa ondan patlıyodur
+                
+                string date = dateTimePicker1.Value.ToString().Substring(0, 10);
+                if (duyuru != "")
                 {
-                    MessageBox.Show("HATA MEVCUT", "Tarihi veya Duyuruyu boş bırakamazsınız", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    duyuruEkle(date, duyuru);
                 }
                 else
                 {
-                    duyuruEkle(tarih, duyuru);
+                    MessageBox.Show("Duyuru Alanı Boş Bırakılamaz");
                 }
+                
+
             }
             catch (Exception)
             {
@@ -155,8 +161,8 @@ namespace visual_programming_final
             {
                 int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-                string cellValue = Convert.ToString(selectedRow.Cells["Duyuru"].Value);
-                sqlCon.Command_Nonq("DELETE FROM duyurular WHERE (`duyuru` = '" + cellValue + "')");
+                string duyuruValue = Convert.ToString(selectedRow.Cells["Duyuru"].Value);
+                sqlCon.Command_Nonq("DELETE FROM duyurular WHERE (`duyuru` = '" + duyuruValue + "')");
                 
                 
                     dataGridView1.Rows.RemoveAt(selectedRow.Index);
@@ -194,7 +200,32 @@ namespace visual_programming_final
             
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+            if (selectedrowindex> 0)
+            {
+                
+                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+                string tarihValue = Convert.ToString(selectedRow.Cells["Tarih"].Value);
+                string duyuruValue = Convert.ToString(selectedRow.Cells["Duyuru"].Value);
+                string date = dateTimePicker1.Value.ToString().Substring(0, 10);
+                MessageBox.Show(date);
 
+                try
+                {
+                    sqlCon.Command_Nonq("UPDATE duyurular SET Duyuru = \"" + textBox2.Text.ToString() + "\" ,tarihDuyurular =\"" + dateTimePicker1.Value.ToString() + "\" WHERE Duyuru =\"" + duyuruValue + "\" AND tarihDuyurular= \"" + tarihValue + "\"");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bir Satır Seç");
+            }
+        }
     }
 }
 

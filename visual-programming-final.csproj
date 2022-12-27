@@ -48,10 +48,46 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=108.0.3.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.108.0.3\lib\netstandard2.0\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.5.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.5.0.1\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +99,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminogrenci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminogrenci.Designer.cs">
+      <DependentUpon>adminogrenci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminogretmen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminogretmen.Designer.cs">
+      <DependentUpon>adminogretmen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Duyurular.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +134,12 @@
     </Compile>
     <Compile Include="HaberlerTakvim.Designer.cs">
       <DependentUpon>HaberlerTakvim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="havaDurumu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="havaDurumu.Designer.cs">
+      <DependentUpon>havaDurumu.cs</DependentUpon>
     </Compile>
     <Compile Include="Ogrenci.cs">
       <SubType>Form</SubType>
@@ -113,12 +173,27 @@
       <DependentUpon>SosyalMedya.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlConnection.cs" />
+    <Compile Include="YemekListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YemekListesi.Designer.cs">
+      <DependentUpon>YemekListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="üyeGirisi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="üyeGirisi.Designer.cs">
       <DependentUpon>üyeGirisi.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminogrenci.resx">
+      <DependentUpon>adminogrenci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminogretmen.resx">
+      <DependentUpon>adminogretmen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Duyurular.resx">
       <DependentUpon>Duyurular.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HaberlerTakvim.resx">
       <DependentUpon>HaberlerTakvim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="havaDurumu.resx">
+      <DependentUpon>havaDurumu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ogrenci.resx">
       <DependentUpon>Ogrenci.cs</DependentUpon>
@@ -145,9 +223,13 @@
     <EmbeddedResource Include="SosyalMedya.resx">
       <DependentUpon>SosyalMedya.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="YemekListesi.resx">
+      <DependentUpon>YemekListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="üyeGirisi.resx">
       <DependentUpon>üyeGirisi.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -264,6 +346,21 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloudy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\temp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\felllike.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\humidity.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,6 +20,7 @@ namespace visual_programming_final
         {
             InitializeComponent();
             pictureBox8.Visible = false;
+            button2.Visible = false;
 
         }
 
@@ -59,7 +60,7 @@ namespace visual_programming_final
                 üye.Show();
                 this.Hide();
             }
-
+            
         }
 
         
@@ -217,7 +218,8 @@ namespace visual_programming_final
                     giris = false;
                     Isogrenci = false;
                     Isogretmen = false;
-
+                    isAdmin = false;
+                    button2.Visible = false;
 
                 }
                 else
@@ -251,7 +253,17 @@ namespace visual_programming_final
 
         private void pictureBox9_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox9.Size = new Size(38, 32);
+            pictureBox9.Size = new Size(50, 45);
+        }
+        private void pictureBox10_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox10.Size = new Size(58, 48);
+
+        }
+
+        private void pictureBox10_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox10.Size = new Size(50, 42);
         }
 
         private void pictureBox5_MouseEnter(object sender, EventArgs e)
@@ -327,5 +339,36 @@ namespace visual_programming_final
             pictureBox8.Size = new Size(40, 38);
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            YemekListesi yemeklistesi = new YemekListesi(this);
+
+            this.Hide();
+            yemeklistesi.Show();
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            havaDurumu havaDurumu = new havaDurumu(this);
+            try
+            {
+                havaDurumu.Show();
+                this.Hide();
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
+        }
+        public bool isAdmin = false;
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Admin admin = new Admin(this);
+            admin.Show();
+            this.Hide();
+        }
     }
 }
