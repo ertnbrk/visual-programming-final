@@ -90,7 +90,7 @@ namespace visual_programming_final
                 string[] dizi = new string[4];
 
                 dizi = item.Split('-');
-                Console.WriteLine(dizi[1]);
+                
                 if (dizi[2] == comboBox1.Text)
                 {
                     Console.WriteLine(dizi[2].ToString());

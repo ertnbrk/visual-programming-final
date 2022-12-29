@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,49 +61,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(560, 190);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(23, 122);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 36);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(265, 272);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(110, 22);
-            this.textBox2.TabIndex = 27;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(396, 272);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(110, 22);
-            this.textBox3.TabIndex = 28;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(523, 272);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(65, 24);
-            this.comboBox1.TabIndex = 30;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(23, 174);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(49, 37);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "EKLE";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Column4
             // 
@@ -135,6 +92,49 @@
             this.Column5.ReadOnly = true;
             this.Column5.Width = 125;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 267);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 36);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "DÜZENLE";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(265, 272);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(110, 22);
+            this.textBox2.TabIndex = 27;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(396, 272);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(110, 22);
+            this.textBox3.TabIndex = 28;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(523, 272);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(108, 24);
+            this.comboBox1.TabIndex = 30;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(114, 266);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(66, 37);
+            this.button2.TabIndex = 31;
+            this.button2.Text = "EKLE";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -156,7 +156,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(531, 253);
+            this.label3.Location = new System.Drawing.Point(551, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 16);
             this.label3.TabIndex = 34;
@@ -176,11 +176,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(36, 270);
+            this.button3.Location = new System.Drawing.Point(186, 266);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(44, 35);
+            this.button3.Size = new System.Drawing.Size(73, 35);
             this.button3.TabIndex = 35;
-            this.button3.Text = "button3";
+            this.button3.Text = "SİL";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 

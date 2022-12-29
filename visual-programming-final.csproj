@@ -362,5 +362,11 @@
   <ItemGroup>
     <None Include="Resources\humidity.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast-food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin-with-cogwheels.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

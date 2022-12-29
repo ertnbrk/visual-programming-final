@@ -63,6 +63,10 @@ namespace visual_programming_final
         private void button1_Click(object sender, EventArgs e)
         {
             //EKLE
+            if (textBox2.Text != null || textBox3.Text != null || comboBox1.SelectedItem != null || comboBox2.SelectedItem != null)
+            {
+
+            
             string numara;
             Random rnd = new Random();
             string randomsayi = "";
@@ -105,6 +109,11 @@ namespace visual_programming_final
 
                 MessageBox.Show("Bir hata meydana geldi lütfen Tekrar Deneyiniz\n" + exception);
             }
+            }
+            else
+            {
+                MessageBox.Show("Alanlar boş bırakılamaz");
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -116,51 +125,60 @@ namespace visual_programming_final
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string numara = "";
-            //Dzenle
-            Random rnd = new Random();
-            string randomsayi = "";
-            for (int i = 0; i < 5; i++)
+            if (textBox2.Text != null || textBox3.Text != null || comboBox1.SelectedItem != null || comboBox2.SelectedItem != null)
             {
-                randomsayi += rnd.Next(0, 9).ToString();
-            }
-            int randomsifre = rnd.Next(1000, 9999);
-            DateTime now = DateTime.Now;
-            Object bolum = comboBox1.SelectedItem;
-            int bolumid = Convert.ToInt32(bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')));
-            if (bolumid > 9)
-            {
-                 numara = now.Date.Year + bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')) + randomsayi;
-                MessageBox.Show(numara);
-            }
-            else
-            {
-                 numara = now.Date.Year + "0" + bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')) + randomsayi;
-                MessageBox.Show(numara);
-            }
 
-            //int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
-            if (dataGridView1.SelectedCells.Count > 0)
-            {
-                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-                string numaras = Convert.ToString(selectedRow.Cells["Column1"].Value);    //Sutunu bulamıyor nedense ayıkamadım
-                Object adminmi = comboBox2.SelectedItem;
-                try
+
+                string numara = "";
+                //Dzenle
+                Random rnd = new Random();
+                string randomsayi = "";
+                for (int i = 0; i < 5; i++)
                 {
-                    sqlCon.Command_Nonq("UPDATE ogretmen SET ogretmencol = '" + textBox2.Text.ToString() + "' ,ogretmenSoy ='" + textBox3.Text.ToString() + "', bolumid ='" + bolumid + "', Admin = '"+adminmi+"', sifre='"+randomsifre+"' WHERE idOgretmen ='"+numaras+"'");
-                    dataGridView1.Rows.Clear();
-                    comboBox1.Items.Clear();
-                    loadData();
+                    randomsayi += rnd.Next(0, 9).ToString();
                 }
-                catch (Exception)
+                int randomsifre = rnd.Next(1000, 9999);
+                DateTime now = DateTime.Now;
+                Object bolum = comboBox1.SelectedItem;
+                int bolumid = Convert.ToInt32(bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')));
+                if (bolumid > 9)
                 {
-                    MessageBox.Show("Error!");
+                    numara = now.Date.Year + bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')) + randomsayi;
+                    MessageBox.Show(numara);
+                }
+                else
+                {
+                    numara = now.Date.Year + "0" + bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')) + randomsayi;
+                    MessageBox.Show(numara);
+                }
+
+                //int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+                if (dataGridView1.SelectedCells.Count > 0)
+                {
+                    int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+                    string numaras = Convert.ToString(selectedRow.Cells["Column1"].Value);    //Sutunu bulamıyor nedense ayıkamadım
+                    Object adminmi = comboBox2.SelectedItem;
+                    try
+                    {
+                        sqlCon.Command_Nonq("UPDATE ogretmen SET ogretmencol = '" + textBox2.Text.ToString() + "' ,ogretmenSoy ='" + textBox3.Text.ToString() + "', bolumid ='" + bolumid + "', Admin = '" + adminmi + "', sifre='" + randomsifre + "' WHERE idOgretmen ='" + numaras + "'");
+                        dataGridView1.Rows.Clear();
+                        comboBox1.Items.Clear();
+                        loadData();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Bir Satır Seç");
                 }
             }
             else
             {
-                MessageBox.Show("Bir Satır Seç");
+                MessageBox.Show("Alanlar boş bırakılamaz");
             }
         }
 

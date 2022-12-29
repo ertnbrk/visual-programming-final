@@ -20,8 +20,7 @@ namespace visual_programming_final
         {
             InitializeComponent();
             pictureBox8.Visible = false;
-            button2.Visible = false;
-
+            pictureBox12.Visible = false;
         }
 
         public Ogrenci ogrenci;
@@ -219,7 +218,7 @@ namespace visual_programming_final
                     Isogrenci = false;
                     Isogretmen = false;
                     isAdmin = false;
-                    button2.Visible = false;
+                    pictureBox12.Visible = false;
 
                 }
                 else
@@ -341,10 +340,7 @@ namespace visual_programming_final
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            YemekListesi yemeklistesi = new YemekListesi(this);
-
-            this.Hide();
-            yemeklistesi.Show();
+            
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
@@ -365,6 +361,19 @@ namespace visual_programming_final
         public bool isAdmin = false;
 
         private void button2_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            YemekListesi yemeklistesi = new YemekListesi(this);
+
+            this.Hide();
+            yemeklistesi.Show();
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
         {
             Admin admin = new Admin(this);
             admin.Show();

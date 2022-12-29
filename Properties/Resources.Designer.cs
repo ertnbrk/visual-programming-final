@@ -103,6 +103,16 @@ namespace visual_programming_final.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap admin_with_cogwheels {
+            get {
+                object obj = ResourceManager.GetObject("admin-with-cogwheels", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calendar {
             get {
                 object obj = ResourceManager.GetObject("calendar", resourceCulture);
@@ -166,6 +176,16 @@ namespace visual_programming_final.Properties {
         internal static System.Drawing.Bitmap dpu_logo42 {
             get {
                 object obj = ResourceManager.GetObject("dpu-logo42", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fast_food {
+            get {
+                object obj = ResourceManager.GetObject("fast-food", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

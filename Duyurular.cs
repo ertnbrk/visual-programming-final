@@ -26,7 +26,7 @@ namespace visual_programming_final
             this.form1 = form1;
 
             // tablonun ayarları
-            dataGridView1.ClearSelection();
+            dataGridView1.CurrentCell = null;
             button1.Visible = false;
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToDeleteRows = false;
@@ -37,25 +37,7 @@ namespace visual_programming_final
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;  //hücre değil satır seçimi
             dataGridView1.Columns[1].Width = 200;
             dataGridView1.Columns[0].Width = 50;
-
-            try
-            {
-                ArrayList a = new ArrayList();
-                a = sqlCon.Command_Reader("SELECT tarihDuyurular, Duyuru FROM duyurular");
-
-                foreach (string item in a)
-                {
-                    string[] cols = new string[2];
-                    cols = item.Split('-');
-                    dataGridView1.Rows.Insert(0, cols[0], cols[1]);
-                }
-
-                
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            loadDataGrid();
             //giriş yapmış mı
             if (form1.giris && form1.Isogretmen)
             {
@@ -76,6 +58,31 @@ namespace visual_programming_final
 
             
             }
+        public void loadDataGrid()
+        {
+            dataGridView1.Rows.Clear();
+
+
+            try
+            {
+                ArrayList a = new ArrayList();
+                a = sqlCon.Command_Reader("SELECT tarihDuyurular, Duyuru FROM duyurular");
+
+                foreach (string item in a)
+                {
+                    string[] cols = new string[2];
+                    cols = item.Split('-');
+                    dataGridView1.Rows.Insert(0, cols[0], cols[1]);
+                }
+
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
 
         //pencere taşınılabilirliği
         bool move;
@@ -199,22 +206,23 @@ namespace visual_programming_final
             
             
         }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
             int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
-            if (selectedrowindex> 0)
+            if (selectedrowindex > -1)
             {
                 
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
                 string tarihValue = Convert.ToString(selectedRow.Cells["Tarih"].Value);
                 string duyuruValue = Convert.ToString(selectedRow.Cells["Duyuru"].Value);
                 string date = dateTimePicker1.Value.ToString().Substring(0, 10);
-                MessageBox.Show(date);
-
+               
                 try
                 {
                     sqlCon.Command_Nonq("UPDATE duyurular SET Duyuru = \"" + textBox2.Text.ToString() + "\" ,tarihDuyurular =\"" + dateTimePicker1.Value.ToString() + "\" WHERE Duyuru =\"" + duyuruValue + "\" AND tarihDuyurular= \"" + tarihValue + "\"");
+                    loadDataGrid();
                 }
                 catch (Exception)
                 {

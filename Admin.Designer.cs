@@ -42,7 +42,7 @@
             this.pictureBox2.BackgroundImage = global::visual_programming_final.Properties.Resources.graduated;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Location = new System.Drawing.Point(208, 37);
+            this.pictureBox2.Location = new System.Drawing.Point(203, 96);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(65, 60);
             this.pictureBox2.TabIndex = 2;
@@ -55,7 +55,7 @@
             this.pictureBox4.BackgroundImage = global::visual_programming_final.Properties.Resources.training;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Location = new System.Drawing.Point(75, 37);
+            this.pictureBox4.Location = new System.Drawing.Point(62, 96);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(65, 60);
             this.pictureBox4.TabIndex = 4;
@@ -80,7 +80,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 129);
+            this.BackgroundImage = global::visual_programming_final.Properties.Resources.image_asset;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(328, 255);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox2);

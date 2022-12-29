@@ -22,38 +22,56 @@ namespace visual_programming_final
             {
                 ArrayList notlar = new ArrayList();
                 comboBox1.Visible = false;
-                notlar = conn.Command_Reader("SELECT idogrenci,dersAdi , notl FROM dersler INNER JOIN notlar ON dersler.idders = notlar.dersid");
-                /*
-                foreach (string item in notlar)
-                {
-                    string[] dizi = new string[3];
-                    dizi = item.Split('-');
-
-                    if (dizi[0] == anaekran.id)
-                    {
-                        listBox1.Items.Add(dizi[1] + " == " + dizi[2]);
-                    }
-                }
-                */
+                comboBox2.Visible = false;
+                notlar = conn.Command_Reader("SELECT idogrenci,dersAdi , notl FROM dersler INNER JOIN notlar ON dersler.idders = notlar.dersid WHERE idogrenci = "+form1.id+";");
+                dataGridView2.Visible = false;
                 ArrayList a = new ArrayList();
                 dataGridView1.ReadOnly = true;
                 dataGridView1.AllowUserToDeleteRows = false;
-                dataGridView1.ColumnCount = 2;
+                dataGridView1.ColumnCount = 3;
                 dataGridView1.Columns[0].Name = "Ders";//Kolonların adı
                 dataGridView1.Columns[1].Name = "Not";
-                
+                dataGridView1.Columns[2].Name = "HARF";
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;  //hücre değil satır seçimi
-                dataGridView1.Columns[1].Width = 200;
-                dataGridView1.Columns[0].Width = 50;
-
+                dataGridView1.Columns[1].Width = 50;
+                dataGridView1.Columns[0].Width = 128;
+                dataGridView1.Columns[2].Width = 50;
+                int derece = 0;
+                int not = 0;
+                string harfNotu = "";
                 foreach (string item in notlar)
                 {
                     string[] cols = new string[3];
                     
                     cols = item.Split('-');
-                    dataGridView1.Rows.Insert(0, cols[1], cols[2]);
+                    not = Convert.ToInt32(cols[2]);
+
+                    if (not <101 && not >84)
+                    {
+                        harfNotu = "AA";
+                        
+                    }
+                    else if (not <85 && not >69)
+                    {
+                        harfNotu = "BA";
+                    }
+                    else if (not <70 && not > 49)
+                    {
+                        harfNotu = "BB";
+                    }
+                    else if (not <50 && not >20)
+                    {
+                        harfNotu = "CB";
+                    }
+                    else
+                    {
+                        harfNotu = "CC";
+                    }
+
+                    dataGridView1.Rows.Insert(0, cols[1], cols[2],harfNotu);
                     
                 }
+                
 
                 
 
@@ -61,14 +79,21 @@ namespace visual_programming_final
             }
             else
             {
+                comboBox2.Visible = true;
+                dataGridView2.Visible = true;
                 dataGridView1.Visible = false;
                 comboBox1.Visible = true;
-                comboBox1.Text = "BÖLÜMLER";
-                ArrayList bolumler = new ArrayList();
-                ArrayList clm = new ArrayList();
-                bolumler = conn.Command_Reader("SELECT bolumad FROM bolumler");
+                comboBox1.Text = "DERSLER";
+                ArrayList ders = new ArrayList();
+                ArrayList bolum = new ArrayList();
+                bolum = conn.Command_Reader("SELECT bolumad FROM bolumler");
+                ders = conn.Command_Reader("SELECT dersAdi FROM dersler");
                 label1.Visible = true;
-                foreach (string item in bolumler)
+                foreach (string item in bolum)
+                {
+                    comboBox2.Items.Add(item);
+                }
+                foreach (string item in ders)
                 {
 
                     comboBox1.Items.Add(item);
@@ -113,25 +138,39 @@ namespace visual_programming_final
         }
         SqlConnection conn = new SqlConnection();
         ArrayList myArray = new ArrayList();
-
+        
+        
+    
         private void button3_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            int notkiyas = 0;
+            int ortalama = 0;
+            ArrayList notlar = new ArrayList();
+
+            notlar = conn.Command_Reader("SELECT notl FROM notlar INNER JOIN dersler ON notlar.dersid = dersler.idders WHERE dersAdi = '"+comboBox1.SelectedItem.ToString()+"'; ");
             
-            ArrayList innerım = new ArrayList();
             
-            innerım = conn.Command_Reader("SELECT bolumad,idogrenci,ogrenciAd,ogrenciSoy FROM bolumler INNER JOIN ogrenci ON bolumler.idbolumler = ogrenci.bolumid");
+            foreach (string item in notlar)
+            {
+                //string mitem = item.Substring(0, item.IndexOf('-'));
+               notkiyas  = notkiyas + Convert.ToInt32(item);
+            }
+            if (notlar.Count >0)
+            {
+               ortalama = notkiyas / notlar.Count;
+                
+                    if (ortalama > 80)
+                    {
+                        conn.Command_Nonq("UPDATE dersler SET Kredi = Kredi - 1, krediKirilma = 1 WHERE dersAdi = '" + comboBox1.SelectedItem.ToString() + "' AND Kredi >2; ");
+                        
+                    }
+                
+                
+            }
+ 
+            label1.Text = "Not ortalaması  => "+ ortalama;
 
             
-            foreach (string item in innerım)
-            {
-                string mitem = item.Substring(0, item.IndexOf('-'));
-                if (comboBox1.Text == mitem)
-                {
-                    listBox1.Items.Add(item.Replace('-', ' '));
-                }
-            }
-            label1.Text = "Öğrenci Sayısı => "+listBox1.Items.Count;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -154,6 +193,21 @@ namespace visual_programming_final
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Clear();
+            ArrayList ogrencibolum = new ArrayList();
+            ogrencibolum = conn.Command_Reader("SELECT idogrenci,ogrenciAd,ogrenciSoy FROM `gp-final`.ogrenci INNER JOIN `gp-final`.bolumler ON ogrenci.bolumid = bolumler.idbolumler WHERE bolumad = '"+comboBox2.SelectedItem.ToString()+"';");
+            foreach (string item in ogrencibolum)
+            {
+                string[] rows = new string[3];
+                rows = item.ToString().Split('-');
+                dataGridView2.Rows.Add(rows);
+            }
+            label1.Text = "Öğrenci Sayısı => " + (dataGridView2.Rows.Count-1).ToString();
+            label1.Visible = true;
         }
     }
 }

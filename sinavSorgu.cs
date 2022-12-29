@@ -82,6 +82,10 @@ namespace visual_programming_final
 
 
         }
+
+        
+
+
         private void listele()
         {
             ArrayList Sinavid = new ArrayList();

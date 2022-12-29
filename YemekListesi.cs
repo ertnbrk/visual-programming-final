@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using System.Xml.Linq;
+
 namespace visual_programming_final
 {
     
@@ -29,12 +31,12 @@ namespace visual_programming_final
                 string date = DateTime.Now.ToString("yyyy-dd-MM");
                 ArrayList a = new ArrayList();
                 a = sqlCon.Command_Reader("SELECT * FROM yemeklistesi WHERE Tarih =\""+date+"\"");
-                MessageBox.Show(date);
+                
                 foreach (string item in a)
                 {
                     string[] cols = new string[5];
                     cols = item.Split('.');
-                    MessageBox.Show(item);
+                    
                     label6.Text = cols[1];
                     label7.Text = cols[2];
                     label8.Text = cols[3];
@@ -80,6 +82,11 @@ namespace visual_programming_final
             move = true;
             mouse_x = e.X;
             mouse_y = e.Y;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

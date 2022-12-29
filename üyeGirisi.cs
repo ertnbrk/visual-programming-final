@@ -72,32 +72,39 @@ namespace visual_programming_final
             ArrayList ogrenciler = new ArrayList();
             ArrayList ogrenci_sy = new ArrayList();
             ArrayList isAdmins = new ArrayList();
+            ArrayList ogrenciad = new ArrayList();
             if (radioButton1.Checked)
             {
                 //Öğrenci
 
                 ogrencilerid = conn.Command_Reader("SELECT idogrenci FROM ogrenci");
-                ogrenciler = conn.Command_Reader("SELECT sifre FROM ogrenci");
+                
                 ogrenci_sy = conn.Command_Reader("SELECT ogrenciSoy from ogrenci");
-
+                ogrenciad = conn.Command_Reader("SELECT ogrenciAd from ogrenci");
 
                 for (int i = 0; i < ogrencilerid.Count; i++)
                 {
-                    if (ogrencilerid[i].ToString() == textBox1.Text && ogrenciler[i].ToString() == textBox2.Text)
+                    if (ogrencilerid[i].ToString() == textBox1.Text)
                     {
-                        MessageBox.Show("Giriş Yapıldı");
+                        ogrenciler = conn.Command_Reader("SELECT sifre FROM ogrenci WHERE idogrenci =" + ogrencilerid[i] +"");
+                        if (textBox2.Text.ToString() == ogrenciler[0].ToString())
+                        {
+                            MessageBox.Show("Giriş Yapıldı");
 
-                        form1.pictureBox8.Visible = true;
-                        form1.pictureBox6.Visible = false;
-                        form1.giris = true;
-                        form1.Isogrenci = true;
-                        form1.isim = ogrenciler[i].ToString();
-                        form1.id = ogrencilerid[i].ToString();
-                        form1.Soy = ogrenci_sy[i].ToString();
-                        form1.Show();
-                        this.Close();
-
+                            form1.pictureBox8.Visible = true;
+                            form1.pictureBox6.Visible = false;
+                            form1.giris = true;
+                            form1.Isogrenci = true;
+                            form1.isim = ogrenciad[i].ToString();
+                            form1.id = ogrencilerid[i].ToString();
+                            form1.Soy = ogrenci_sy[i].ToString();
+                            form1.Show();
+                            this.Close();
+                            break;
+                        }
+                        
                     }
+                   
 
 
                 }
@@ -124,7 +131,7 @@ namespace visual_programming_final
                     {
                         if (isAdmins[i].ToString() == "Admin")
                         {
-                            form1.button2.Visible = true;
+                            
                         }
                         MessageBox.Show("Giriş Yapıldı");
                         form1.Show();

@@ -37,9 +37,9 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -50,6 +50,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -187,16 +189,6 @@
             this.pictureBox9.MouseEnter += new System.EventHandler(this.pictureBox9_MouseEnter);
             this.pictureBox9.MouseLeave += new System.EventHandler(this.pictureBox9_MouseLeave);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(193, 222);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 53);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Yemek";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // pictureBox10
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
@@ -212,15 +204,29 @@
             this.pictureBox10.MouseEnter += new System.EventHandler(this.pictureBox10_MouseEnter);
             this.pictureBox10.MouseLeave += new System.EventHandler(this.pictureBox10_MouseLeave);
             // 
-            // button2
+            // pictureBox11
             // 
-            this.button2.Location = new System.Drawing.Point(368, 215);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(63, 65);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "ADMİN";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.BackgroundImage = global::visual_programming_final.Properties.Resources.fast_food;
+            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox11.Location = new System.Drawing.Point(186, 215);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(65, 60);
+            this.pictureBox11.TabIndex = 12;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox12.BackgroundImage = global::visual_programming_final.Properties.Resources.admin_with_cogwheels;
+            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox12.Location = new System.Drawing.Point(381, 271);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(65, 60);
+            this.pictureBox12.TabIndex = 13;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // Form1
             // 
@@ -229,9 +235,9 @@
             this.BackgroundImage = global::visual_programming_final.Properties.Resources.image_asset2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(443, 333);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.pictureBox12);
+            this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
@@ -260,6 +266,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -275,8 +283,8 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         public System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox10;
-        public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox12;
     }
 }

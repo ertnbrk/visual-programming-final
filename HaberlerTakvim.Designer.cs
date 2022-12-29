@@ -38,19 +38,19 @@
             // axAcroPDF1
             // 
             this.axAcroPDF1.AllowDrop = true;
-            this.axAcroPDF1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.axAcroPDF1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.axAcroPDF1.Enabled = true;
-            this.axAcroPDF1.Location = new System.Drawing.Point(39, 96);
+            this.axAcroPDF1.Location = new System.Drawing.Point(0, 54);
+            this.axAcroPDF1.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.axAcroPDF1.Name = "axAcroPDF1";
             this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(953, 763);
+            this.axAcroPDF1.Size = new System.Drawing.Size(920, 447);
             this.axAcroPDF1.TabIndex = 24;
             this.axAcroPDF1.Enter += new System.EventHandler(this.axAcroPDF1_Enter);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.GrayText;
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::visual_programming_final.Properties.Resources._return;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
@@ -67,7 +67,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::visual_programming_final.Properties.Resources.image_asset2;
-            this.ClientSize = new System.Drawing.Size(1353, 883);
+            this.ClientSize = new System.Drawing.Size(920, 501);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.axAcroPDF1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
