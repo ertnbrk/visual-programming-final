@@ -55,7 +55,7 @@
             this.Column2,
             this.Column3,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(95, 60);
+            this.dataGridView1.Location = new System.Drawing.Point(49, 60);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -188,6 +188,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackgroundImage = global::visual_programming_final.Properties.Resources.image_asset2;
             this.ClientSize = new System.Drawing.Size(698, 320);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
@@ -200,8 +202,13 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
+            this.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "adminogrenci";
             this.Text = "adminogrenci";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

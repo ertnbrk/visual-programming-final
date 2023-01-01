@@ -60,7 +60,7 @@
             this.Column3,
             this.Column4,
             this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(46, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(31, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -117,9 +117,10 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(750, 382);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(54, 30);
+            this.button1.Size = new System.Drawing.Size(86, 30);
             this.button1.TabIndex = 1;
             this.button1.Text = "EKLE";
             this.button1.UseVisualStyleBackColor = true;
@@ -172,35 +173,42 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(430, 369);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(420, 367);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 16);
+            this.label1.Size = new System.Drawing.Size(62, 20);
             this.label1.TabIndex = 27;
             this.label1.Text = "Bölüm";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(262, 369);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(252, 367);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 16);
+            this.label2.Size = new System.Drawing.Size(75, 20);
             this.label2.TabIndex = 28;
             this.label2.Text = "Soyisim";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(90, 369);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(80, 367);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 16);
+            this.label3.Size = new System.Drawing.Size(44, 20);
             this.label3.TabIndex = 29;
             this.label3.Text = "İsim";
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(726, 341);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 35);
+            this.button2.Size = new System.Drawing.Size(110, 35);
             this.button2.TabIndex = 30;
             this.button2.Text = "DÜZENLE";
             this.button2.UseVisualStyleBackColor = true;
@@ -208,7 +216,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(645, 341);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(697, 383);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(47, 30);
             this.button3.TabIndex = 31;
@@ -220,6 +229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::visual_programming_final.Properties.Resources.image_asset2;
             this.ClientSize = new System.Drawing.Size(888, 435);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -233,8 +243,12 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "adminogretmen";
             this.Text = "adminogretmen";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

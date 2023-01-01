@@ -131,7 +131,7 @@ namespace visual_programming_final
                     {
                         if (isAdmins[i].ToString() == "Admin")
                         {
-                            
+                            form1.pictureBox12.Visible = true;
                         }
                         MessageBox.Show("Giriş Yapıldı");
                         form1.Show();

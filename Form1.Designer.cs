@@ -215,6 +215,8 @@
             this.pictureBox11.TabIndex = 12;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
+            this.pictureBox11.MouseEnter += new System.EventHandler(this.pictureBox11_MouseEnter);
+            this.pictureBox11.MouseLeave += new System.EventHandler(this.pictureBox11_MouseLeave);
             // 
             // pictureBox12
             // 
@@ -227,6 +229,8 @@
             this.pictureBox12.TabIndex = 13;
             this.pictureBox12.TabStop = false;
             this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
+            this.pictureBox12.MouseEnter += new System.EventHandler(this.pictureBox12_MouseEnter);
+            this.pictureBox12.MouseLeave += new System.EventHandler(this.pictureBox12_MouseLeave);
             // 
             // Form1
             // 
@@ -285,6 +289,6 @@
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox12;
+        public System.Windows.Forms.PictureBox pictureBox12;
     }
 }

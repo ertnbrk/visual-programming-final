@@ -337,11 +337,26 @@ namespace visual_programming_final
         {
             pictureBox8.Size = new Size(40, 38);
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void pictureBox11_MouseEnter(object sender, EventArgs e)
         {
-            
+            pictureBox11.Size = new Size(55, 50);
         }
+
+        private void pictureBox11_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox11.Size = new Size(48, 45);
+        }
+        private void pictureBox12_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox12.Size = new Size(55, 50);
+        }
+
+        private void pictureBox12_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox12.Size = new Size(48, 45);
+        }
+
+
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {

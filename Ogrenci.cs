@@ -36,7 +36,6 @@ namespace visual_programming_final
                 dataGridView1.Columns[1].Width = 50;
                 dataGridView1.Columns[0].Width = 128;
                 dataGridView1.Columns[2].Width = 50;
-                int derece = 0;
                 int not = 0;
                 string harfNotu = "";
                 foreach (string item in notlar)

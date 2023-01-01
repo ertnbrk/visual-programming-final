@@ -30,8 +30,10 @@ namespace visual_programming_final
             {
                 ArrayList a = new ArrayList();
                 ArrayList bolumler = new ArrayList();
+                
                 a = sqlCon.Command_Reader("SELECT idOgretmen,ogretmencol,ogretmenSoy,bolumad,Admin,sifre FROM ogretmen INNER JOIN bolumler ON ogretmen.bolumid = bolumler.idbolumler");
                 bolumler = sqlCon.Command_Reader("SELECT idbolumler,bolumad FROM bolumler");
+                
 
                 if (a is null)
                 {
@@ -66,56 +68,80 @@ namespace visual_programming_final
             if (textBox2.Text != null || textBox3.Text != null || comboBox1.SelectedItem != null || comboBox2.SelectedItem != null)
             {
 
-            
-            string numara;
-            Random rnd = new Random();
-            string randomsayi = "";
-            for (int i = 0; i < 5; i++)
-            {
-                randomsayi += rnd.Next(0, 9).ToString();
-                
-            }
-            DateTime now = DateTime.Now;
-            Object bolum = comboBox1.SelectedItem;
-            Object adminmi = comboBox2.SelectedItem;
+
+                string numara;
+                Random rnd = new Random();
+                string randomsayi = "";
+                for (int i = 0; i < 5; i++)
+                {
+                    randomsayi += rnd.Next(0, 9).ToString();
+
+                }
+                DateTime now = DateTime.Now;
+                Object bolum = comboBox1.SelectedItem;
+                Object adminmi = comboBox2.SelectedItem;
+
+                if (bolum != null && adminmi != null)
+                {
 
 
+                    int randomsifre = rnd.Next(1000, 9999);
+                    string bolumAD = bolum.ToString().Substring(bolum.ToString().IndexOf('-'));
+                    int bolumid = Convert.ToInt32(bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')));
 
+                    if (bolumid > 9)
+                    {
+                        numara = now.Date.Year + bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')) + randomsayi;
+                        MessageBox.Show(numara);
+                    }
+                    else
+                    {
+                        numara = now.Date.Year + "0" + bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')) + randomsayi;
+                        MessageBox.Show(numara);
+                    }
+                    try
+                    {
+                        sqlCon.Command_Nonq("INSERT INTO `ogretmen` (idOgretmen,ogretmencol,ogretmenSoy,bolumid,Admin,sifre) VALUES('" + numara + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + bolumid + "','" + adminmi + "','" + randomsifre + "')");
 
-            int randomsifre = rnd.Next(1000, 9999);
-            string bolumAD = bolum.ToString().Substring(bolum.ToString().IndexOf('-'));
-            int bolumid = Convert.ToInt32(bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')));
-            
-            if (bolumid > 9)
-            {
-                numara = now.Date.Year + bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')) + randomsayi;
-                MessageBox.Show(numara);
-            }
-            else
-            {
-                numara = now.Date.Year + "0" + bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')) + randomsayi;
-                MessageBox.Show(numara);
-            }
-            try
-            {
-                sqlCon.Command_Nonq("INSERT INTO `ogretmen` (idOgretmen,ogretmencol,ogretmenSoy,bolumid,Admin,sifre) VALUES('" + numara + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + bolumid + "','"+adminmi+"','"+randomsifre+"')");
+                        dataGridView1.Rows.Clear();
+                        comboBox1.Items.Clear();
+                        comboBox2.Items.Clear();
+                        loadData();
+                    }
+                    catch (Exception exception)
+                    {
 
-                dataGridView1.Rows.Clear();
-                comboBox1.Items.Clear();
-                loadData();
-            }
-            catch (Exception exception)
-            {
-
-                MessageBox.Show("Bir hata meydana geldi lütfen Tekrar Deneyiniz\n" + exception);
-            }
+                        MessageBox.Show("Bir hata meydana geldi lütfen Tekrar Deneyiniz\n" + exception);
+                    }
+                }
             }
             else
             {
                 MessageBox.Show("Alanlar boş bırakılamaz");
             }
         }
+        bool move;
+        int mouse_x;
+        int mouse_y;
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            move = false;
+        }
 
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (move)
+            {
+                this.SetDesktopLocation(MousePosition.X - mouse_x, MousePosition.Y - mouse_y);
+            }
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            move = true;
+            mouse_x = e.X;
+            mouse_y = e.Y;
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             admin.Show();
@@ -140,6 +166,7 @@ namespace visual_programming_final
                 int randomsifre = rnd.Next(1000, 9999);
                 DateTime now = DateTime.Now;
                 Object bolum = comboBox1.SelectedItem;
+                if(bolum != null) { 
                 int bolumid = Convert.ToInt32(bolum.ToString().Substring(0, bolum.ToString().IndexOf('-')));
                 if (bolumid > 9)
                 {
@@ -174,6 +201,7 @@ namespace visual_programming_final
                 else
                 {
                     MessageBox.Show("Bir Satır Seç");
+                }
                 }
             }
             else
