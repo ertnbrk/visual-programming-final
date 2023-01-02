@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Collections;
+using System.Security.Cryptography;
+
 namespace visual_programming_final
 {
     public partial class SqlConnection
@@ -79,7 +81,7 @@ namespace visual_programming_final
 
 
         }
-
+        
         public void Command_Nonq (string query)
         {
             using (MySqlConnection con = new MySqlConnection(myConnectionString))

@@ -159,10 +159,12 @@ namespace visual_programming_final
                 string numara;
                 Random rnd = new Random();
                 string randomsayi = "";
+                string randomsifre = "";
                 for (int i = 0; i < 5; i++)
                 {
                     randomsayi += rnd.Next(0, 9).ToString();
                 }
+                randomsifre = rnd.Next(1000, 9999).ToString();
                 DateTime now = DateTime.Now;
                 Object bolum = comboBox1.SelectedItem;
                 string bolumAD = bolum.ToString().Substring(bolum.ToString().IndexOf('-'));
@@ -179,7 +181,7 @@ namespace visual_programming_final
                 }
                 try
                 {
-                    sqlCon.Command_Nonq("INSERT INTO `ogrenci` (`idogrenci`, `ogrenciAd`, `ogrenciSoy`, `bolumid`) VALUES('" + numara + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + bolumid + "')");
+                    sqlCon.Command_Nonq("INSERT INTO `ogrenci` (`idogrenci`, `ogrenciAd`, `ogrenciSoy`, `bolumid`,`sifre`) VALUES('" + numara + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + bolumid + "','" + randomsifre + "')");
                     dataGridView1.Rows.Insert(0, numara, textBox2.Text, textBox3.Text, bolumAD);
                     dataGridView1.Rows.Clear();
                     comboBox1.Items.Clear();
